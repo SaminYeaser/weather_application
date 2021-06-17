@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:weather/screens/locationScreen.dart';
 import 'package:weather/services/location.dart';
 
-
 import 'package:weather/services/networking.dart';
 
 const apiKey = '71b080b488627db52f279b053e9df166';
@@ -32,12 +31,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
     longitude = obj.longitude;
 
     NetworkHelper netHelper = new NetworkHelper(
-        'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
+        'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey&units=metric');
 
-    weatherData = netHelper.getDate();
+    weatherData = await netHelper.getDate();
 
     Navigator.push(context, MaterialPageRoute(builder: (context){
-      return LocationScreen();
+      return LocationScreen(locationWeather: weatherData,);
     }));
   }
 
