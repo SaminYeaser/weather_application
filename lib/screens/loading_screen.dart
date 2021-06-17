@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather/screens/locationScreen.dart';
 import 'package:weather/services/location.dart';
 
 
@@ -14,6 +15,7 @@ class LoadingScreen extends StatefulWidget {
 class _LoadingScreenState extends State<LoadingScreen> {
   double? latitude;
   double? longitude;
+  var weatherData;
 
   @override
   void initState() {
@@ -32,13 +34,20 @@ class _LoadingScreenState extends State<LoadingScreen> {
     NetworkHelper netHelper = new NetworkHelper(
         'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
 
-    var weatherData = netHelper.getDate();
+    weatherData = netHelper.getDate();
+
+    Navigator.push(context, MaterialPageRoute(builder: (context){
+      return LocationScreen();
+    }));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text(''),
-    );
+    return  weatherData == null ? Center(child: CircularProgressIndicator()) :
+      Column(
+        children: [
+
+        ],
+      );
   }
 }
