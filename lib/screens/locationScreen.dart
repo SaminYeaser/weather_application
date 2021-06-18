@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather/screens/loading_screen.dart';
 
 class LocationScreen extends StatefulWidget {
   final locationWeather;
@@ -52,7 +53,9 @@ class _LocationScreenState extends State<LocationScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+
+                      },
                       child: Icon(
                         Icons.near_me,
                         size: 50,

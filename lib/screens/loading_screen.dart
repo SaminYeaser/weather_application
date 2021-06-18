@@ -46,6 +46,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
   Widget build(BuildContext context) {
     return weatherData == null
         ? Center(child: CircularProgressIndicator())
-        : ElevatedButton(onPressed: () {}, child: Text('Get Location'));
+        : ElevatedButton(onPressed: () {
+          getLocation();
+    }, child: Text('Get Location'));
   }
 }
