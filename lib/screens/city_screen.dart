@@ -17,7 +17,7 @@ class _CityScreenState extends State<CityScreen> {
           children: [
             Align(
               alignment: Alignment.topLeft,
-              child: FlatButton(
+              child: ElevatedButton(
                 onPressed: () {},
                 child: Icon(
                   Icons.arrow_back_ios,
@@ -34,7 +34,8 @@ class _CityScreenState extends State<CityScreen> {
                 child: Text(
                   'Get Weather',
                   style: TextStyle(
-
+                    fontSize: 30.0,
+                    fontFamily: 'Spartan MB',
                   ),
                 )),
           ],

@@ -35,18 +35,17 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
     weatherData = await netHelper.getDate();
 
-    Navigator.push(context, MaterialPageRoute(builder: (context){
-      return LocationScreen(locationWeather: weatherData,);
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return LocationScreen(
+        locationWeather: weatherData,
+      );
     }));
   }
 
   @override
   Widget build(BuildContext context) {
-    return  weatherData == null ? Center(child: CircularProgressIndicator()) :
-      Column(
-        children: [
-
-        ],
-      );
+    return weatherData == null
+        ? Center(child: CircularProgressIndicator())
+        : ElevatedButton(onPressed: () {}, child: Text('Get Location'));
   }
 }
